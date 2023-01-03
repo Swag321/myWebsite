@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Webeme</title>
+ 
+</head>
+<body>
+
+       <script>
+            window.addEventListener('scroll', () => {
+                document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+            }, false);
+    </script>
+    <!-- <header>
+        <img class="swagatPic" src="SwagatPic.JPG" alt="Swagat's Profile Pic">
+    </header> -->
+
+    <nav>
+        <span class="swagatName">Swagat Adhikary</span>
+        <img class="swagatPic" src="SwagatPic.JPG" alt="Swagat's Profile Pic">
+        <ul>
+            <li>Resume</li>
+            <li>About Me</li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- Progress Bar: -->
+        <div class="progress"></div>
+        <!-- To leave space for fixed aside:  -->
+        <div class="whitespace"></div> 
+        
+        <aside>
+            <a href="#">UNC</a>
+            <a href="#">Wake Tech</a>
+            <a href="#cary">Cary High</a>
+        </aside>
+        <main>
+            <section class="education">
+                <h3 class="secHead">Education</h3>
+                <span class="line"></span>
+                <div id="unc" class="unc div1">
+                    <img class="divImg1" src="SwagatPic.JPG" alt="UNC Chapel Hill">
+                    <div><h5 class="divHead1"> University of North Carolina at Chapel Hill</h5>
+                    <ul class="divDetail1">
+                        <li>B.S. in Computer Science | Minor in Business Admin</li>
+                        <li>Awarded $6K by Harvey Duke Scholarship</li>
+                        <li>Work-Study at IT Deparment of School of Education </li>
+                        <li>Credit for Intro to Comp, Discrete Structures, Calc III</li>
+                    </ul></div>
+                </div>
+                <div class="div2 wakeTech">
+                    <img src="SwagatPic.JPG" alt="Wake Tech" class="divImg2">
+                    <div><h5 class="divHead2"> Wake Technical Community College</h5>
+                    <ul class="divDetail">
+                        <li>Diploma in IT: Web Development</li>
+                        <li>Dual Enrolled in High School for College Transfer</li>
+                    </ul></div>
+                </div>
+                <div class="div1 caryHigh">
+                    <img src="SwagatPic.JPG" alt="Wake Tech" class="divImg1">
+                    <div><h5 id="cary"> Cary High School</h5>
+                    <ul class="divDetail">
+                        <li>Graduated in 2022 ranked 11 with a 4.6 GPA</li>
+                        <li>Played Varsity Tennis and Varsity Soccer</li>
+                        <li>Awards: AP Scholar, Junior Marshall, Summa Cum Laude</li>
+                    </ul></div>
+                </div>
+            </section>
+            <section class="experience">
+                <h3>Experience</h3>
+                <span class="line"></span>
+                <div class="exp1">
+                    <img class="divImg1" src="SwagatPic.JPG" alt="School of Education">
+                    <div>
+                        <h5 class="expHead1 divHead1">School of Education IT Department</h5>
+                        <ul class="expDetail">
+                            <li>Assisted staff and faculty with technical issues to ensure a smooth operation for the School of Education</li>
+                            <li>Troubleshooted various equipment such as laptops, iPads, projectors, servers, etc.</li>
+                            <li>Imaged 50+ devices and wiped ~100 HDDs/SSDs through coordinated effort with coworkers</li>
+                            <li>Destroyed data via BitRaser; employed Jamf for MacOS and batch script for Windows to automate app installation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="exp2">
+                    <img src="SwagatPic.JPG" alt="Everest Nepali Kitchen Website" class="divImg2">
+                    <div>
+                        <h5 class="divHead2"> Everest Nepali Kitchen</h5>
+                        <ul class="expDetail">
+                            <li>Broadcasted coupon code to 160 customers through FiveStars leading to $70+ dollars saved in 1 week</li>
+                            <li>Tweaked pre-existing website on WordPress to fix errors</li>
+                            <li>Enhanced User Interface through Zaytech plugins and Optimized SEO via Yoast</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="exp1">
+                    <img src="SwagatPic.JPG" alt="Zebra Robotics" class="divImg1">
+                    <div>
+                        <h5 class="divHead1">Zebra Robotics</h5>
+                        <ul class="expDetail">
+                            <li>Trained 150+ students ranging from grades 3 – 10 for 20 – 30 hours weekly</li>
+                            <li>Taught hardware and software components of robotics</li>
+                            <li>Challenged students with programing problems in Python and Web Designing in HTML/CSS</li>
+                            <li>Utilized MicroPython for higher level Ev3 robots and Block-Based programming for Spike Hubs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="exp2">
+                    <img src="SwagatPic.JPG" alt="Everest Nepali Kitchen Waiter" class="divImg2">
+                    <div>
+                        <h5 class="divHead2">Everest Nepali Kitchen</h5>
+        
+                        <ul class="expDetail">
+                        </ul>
+                    </div>
+                </div>
+                <div class="exp1">
+                    <img src="SwagatPic.JPG" alt="Food Lion Cashier" class="divImg1">
+                    <div>
+                        <h5 class="divHead1">Food Lion</h5>
+        
+                        <ul class="expDetail">
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="projects">
+                <h3>Projects</h3>
+                <span class="line"></span>
+        
+                <div class="proj1">
+                    <img src="SwagatPic.JPG" alt="AgTech" class="divImg1">
+                    <div>
+                        <h5 class="divHead1">AgTech</h5>
+                        <ul class="proDetail">
+                            <li>Invented a contraption to measure humidity, temperature, heat index, and water level in soil</li>
+                            <li>Uploaded soil content data to Firebase to be extracted as JSON and visualized on Colab</li>
+                            <li>Embedded the Colab gist on our website which we hosted with REACT</li>
+                            <li>Awarded $400 in Best Agricultural Innovation Award (John Deere) and Interview by Infosys for Best Junior Hackers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj2">
+                    <img src="SwagatPic.JPG" alt="Clap-Controlled Car" class="divImg2">
+                    <div>
+                        <h5 class="divHead2">Clap-Controlled Car</h5>
+                        <ul class="projDetail">
+                            <li>Developed a miniature car using an Arduino, a sound sensor, and other supporting systems</li>
+                            <li>Programmed the microcontroller to move the car right upon 2 claps, left on 3, and backward on 4</li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj1">
+                    <img src="SwagatPic.JPG" alt="" class="divImg1">
+                    <div>
+                        <h5 class="divHead1"></h5>
+                        <ul class="projDetail">
+                            <li>Assembled buttons, wires, LCD display, batteries, etc., to create a device to sort through various timed exercises</li>
+                            <li>Soldered a left, home, and right button to change work-out routine, a potentiometer to adjust screen brightness, and a timer
+                            to beep upon end of a set and in the morning as an alarm</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        
+        </main>
+    </div>
+
+</body>
+</html>

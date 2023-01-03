@@ -1,0 +1,221 @@
+* {
+    margin: 0 ;
+}
+/* header {
+    background-color: black;
+    }
+*/
+.swagatPic {
+    width: 150px;
+    height: 115px;
+    float:left;
+    clear:both;
+    padding:5px;
+    position: absolute;
+    left: -300px;
+
+ }
+
+nav {
+    background-color: black; 
+    text-align: right;
+ 
+    }
+
+.swagatName {
+    color: white;
+    display: inline-block;
+    margin: 30px 950px 30px 0;
+    font-size: 24px;
+    }
+
+nav ul li {
+    color: white;
+    text-decoration: none; 
+    list-style-type: none;
+    display: inline-block;
+    font-size: larger;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    }
+
+nav ul {
+    margin-right: 5%;
+}
+
+/*nav:hover {
+    transition-delay: 0.5s;
+    background-color: silver;
+}
+
+nav:hover li{
+    color: black;
+    tras
+    }
+*/
+nav:hover .swagatPic{
+    transform: translate(300px,0);
+    transition: all 0.6s linear;
+}
+
+nav:hover .swagatName{
+    color: gold; 
+}
+
+li:hover {
+    background-color: darkgray;
+}
+
+body {
+    background-color: teal;
+}
+
+section {
+    margin: 2%;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.education {
+    background-color: lightgreen;
+
+}
+section h3 {
+    text-align: center;
+}
+
+.line {
+    background-color: purple;
+    padding: 1px;
+    display: block;
+}
+/* ---------Image Styles------------- */
+
+/* ----------------------------------*/
+
+/* -----------------Education +more Divs --------*/
+
+.div1 {
+    background-color: yellow;
+}
+
+.div2 {
+    background-color: yellow; /* Change to form a pattern with div1. */
+
+}
+
+/* -------------------------------- --------*/
+
+
+/* -----------------Experience Divs --------*/
+.experience {
+    background-color: lightblue;
+}
+
+.exp1 {
+    background-color: gold;
+}
+
+.exp2 {
+    background-color: gold;
+}
+/* ------------------------------- --------*/
+
+/* -------------------Projects Div --------*/
+.projects {
+    background-color: lightcoral;
+}
+
+.proj1, .proj2 {
+    background-color: darksalmon;
+}
+
+
+/*----------------------Organization ----*/
+section > div {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 2%;
+}
+
+section > div:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+section img {
+    flex: 1;
+    width: 30%;
+    height: 30%;
+    margin: 0;
+
+}
+
+section > div div:nth-child(even) {
+    flex: 4;
+    margin: 2%;
+    font-size: 2.5vw;
+    /* border: 2px solid red; */
+}
+/*------------------------- ---------*/
+
+.container{
+    display: flex;
+}
+.whitespace {
+    flex: 1;
+}
+aside{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: 2vw;
+    border: 2px solid black;
+    text-align: center;
+    margin: 1%;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    bottom: 0;
+    
+
+}
+
+aside a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+main{
+    flex: 9;
+}
+
+.progress {
+    height: 0;
+    width: 9%;
+    background-color: teal;
+    position: fixed;
+    margin: 1%;
+    top: 75px;
+    animation: progress 1s linear;
+  }
+@keyframes progress {
+    to {
+        background-color: rgb(255, 0, 0);
+        /* Height is 100% of the window - 1% top margin - 1% bottom margin - 75px offset from top. */
+        height: calc(100% - 2% - 75px);
+    }
+}
+
+:root * {
+    /* Pause the animation */
+    animation-play-state: paused;
+    /* Bind the animation to scroll */
+    animation-delay: calc(var(--scroll) * -1s);
+    /* These last 2 properites clean up overshoot weirdness */
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
