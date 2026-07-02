@@ -1,176 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
-    <title>Webeme</title>
- 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Swagat Adhikary — Software Engineer. Portfolio, experience, and projects.">
+  <title>Swagat Adhikary — Software Engineer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
 
-       <script>
-            window.addEventListener('scroll', () => {
-                document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
-            }, false);
-    </script>
-    <!-- <header>
-        <img class="swagatPic" src="SwagatPic.JPG" alt="Swagat's Profile Pic">
-    </header> -->
+  <!-- scroll progress bar -->
+  <div class="progress-bar" id="progressBar"></div>
 
-    <nav>
-        <span class="swagatName">Swagat Adhikary</span>
-        <img class="swagatPic" src="SwagatPic.JPG" alt="Swagat's Profile Pic">
-        <ul>
-            <li>Resume</li>
-            <li>About Me</li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <!-- Progress Bar: -->
-        <div class="progress"></div>
-        <!-- To leave space for fixed aside:  -->
-        <div class="whitespace"></div> 
-        
-        <aside>
-            <a href="#">UNC</a>
-            <a href="#">Wake Tech</a>
-            <a href="#cary">Cary High</a>
-        </aside>
-        <main>
-            <section class="education">
-                <h3 class="secHead">Education</h3>
-                <span class="line"></span>
-                <div id="unc" class="unc div1">
-                    <img class="divImg1" src="SwagatPic.JPG" alt="UNC Chapel Hill">
-                    <div><h5 class="divHead1"> University of North Carolina at Chapel Hill</h5>
-                    <ul class="divDetail1">
-                        <li>B.S. in Computer Science | Minor in Business Admin</li>
-                        <li>Awarded $6K by Harvey Duke Scholarship</li>
-                        <li>Work-Study at IT Deparment of School of Education </li>
-                        <li>Credit for Intro to Comp, Discrete Structures, Calc III</li>
-                    </ul></div>
-                </div>
-                <div class="div2 wakeTech">
-                    <img src="SwagatPic.JPG" alt="Wake Tech" class="divImg2">
-                    <div><h5 class="divHead2"> Wake Technical Community College</h5>
-                    <ul class="divDetail">
-                        <li>Diploma in IT: Web Development</li>
-                        <li>Dual Enrolled in High School for College Transfer</li>
-                    </ul></div>
-                </div>
-                <div class="div1 caryHigh">
-                    <img src="SwagatPic.JPG" alt="Wake Tech" class="divImg1">
-                    <div><h5 id="cary"> Cary High School</h5>
-                    <ul class="divDetail">
-                        <li>Graduated in 2022 ranked 11 with a 4.6 GPA</li>
-                        <li>Played Varsity Tennis and Varsity Soccer</li>
-                        <li>Awards: AP Scholar, Junior Marshall, Summa Cum Laude</li>
-                    </ul></div>
-                </div>
-            </section>
-            <section class="experience">
-                <h3>Experience</h3>
-                <span class="line"></span>
-                <div class="exp1">
-                    <img class="divImg1" src="SwagatPic.JPG" alt="School of Education">
-                    <div>
-                        <h5 class="expHead1 divHead1">School of Education IT Department</h5>
-                        <ul class="expDetail">
-                            <li>Assisted staff and faculty with technical issues to ensure a smooth operation for the School of Education</li>
-                            <li>Troubleshooted various equipment such as laptops, iPads, projectors, servers, etc.</li>
-                            <li>Imaged 50+ devices and wiped ~100 HDDs/SSDs through coordinated effort with coworkers</li>
-                            <li>Destroyed data via BitRaser; employed Jamf for MacOS and batch script for Windows to automate app installation</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="exp2">
-                    <img src="SwagatPic.JPG" alt="Everest Nepali Kitchen Website" class="divImg2">
-                    <div>
-                        <h5 class="divHead2"> Everest Nepali Kitchen</h5>
-                        <ul class="expDetail">
-                            <li>Broadcasted coupon code to 160 customers through FiveStars leading to $70+ dollars saved in 1 week</li>
-                            <li>Tweaked pre-existing website on WordPress to fix errors</li>
-                            <li>Enhanced User Interface through Zaytech plugins and Optimized SEO via Yoast</li>
-                        </ul>
-                    </div>
-                </div>
-        
-                <div class="exp1">
-                    <img src="SwagatPic.JPG" alt="Zebra Robotics" class="divImg1">
-                    <div>
-                        <h5 class="divHead1">Zebra Robotics</h5>
-                        <ul class="expDetail">
-                            <li>Trained 150+ students ranging from grades 3 – 10 for 20 – 30 hours weekly</li>
-                            <li>Taught hardware and software components of robotics</li>
-                            <li>Challenged students with programing problems in Python and Web Designing in HTML/CSS</li>
-                            <li>Utilized MicroPython for higher level Ev3 robots and Block-Based programming for Spike Hubs</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="exp2">
-                    <img src="SwagatPic.JPG" alt="Everest Nepali Kitchen Waiter" class="divImg2">
-                    <div>
-                        <h5 class="divHead2">Everest Nepali Kitchen</h5>
-        
-                        <ul class="expDetail">
-                        </ul>
-                    </div>
-                </div>
-                <div class="exp1">
-                    <img src="SwagatPic.JPG" alt="Food Lion Cashier" class="divImg1">
-                    <div>
-                        <h5 class="divHead1">Food Lion</h5>
-        
-                        <ul class="expDetail">
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section class="projects">
-                <h3>Projects</h3>
-                <span class="line"></span>
-        
-                <div class="proj1">
-                    <img src="SwagatPic.JPG" alt="AgTech" class="divImg1">
-                    <div>
-                        <h5 class="divHead1">AgTech</h5>
-                        <ul class="proDetail">
-                            <li>Invented a contraption to measure humidity, temperature, heat index, and water level in soil</li>
-                            <li>Uploaded soil content data to Firebase to be extracted as JSON and visualized on Colab</li>
-                            <li>Embedded the Colab gist on our website which we hosted with REACT</li>
-                            <li>Awarded $400 in Best Agricultural Innovation Award (John Deere) and Interview by Infosys for Best Junior Hackers</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="proj2">
-                    <img src="SwagatPic.JPG" alt="Clap-Controlled Car" class="divImg2">
-                    <div>
-                        <h5 class="divHead2">Clap-Controlled Car</h5>
-                        <ul class="projDetail">
-                            <li>Developed a miniature car using an Arduino, a sound sensor, and other supporting systems</li>
-                            <li>Programmed the microcontroller to move the car right upon 2 claps, left on 3, and backward on 4</li>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="proj1">
-                    <img src="SwagatPic.JPG" alt="" class="divImg1">
-                    <div>
-                        <h5 class="divHead1"></h5>
-                        <ul class="projDetail">
-                            <li>Assembled buttons, wires, LCD display, batteries, etc., to create a device to sort through various timed exercises</li>
-                            <li>Soldered a left, home, and right button to change work-out routine, a potentiometer to adjust screen brightness, and a timer
-                            to beep upon end of a set and in the morning as an alarm</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        
-        </main>
+  <!-- cursor glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ======= NAV ======= -->
+  <nav class="nav" id="nav">
+    <a href="#top" class="nav-logo" id="navLogo">&lt;<span id="navName">S</span>/&gt;</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <header class="hero" id="top">
+    <canvas id="particles"></canvas>
+    <div class="hero-inner">
+      <p class="hero-hello mono reveal">Hi, my name is</p>
+      <h1 class="hero-name reveal" id="heroName">Swagat Adhikary</h1>
+      <h2 class="hero-role reveal">
+        <span class="mono">&gt;&nbsp;</span><span id="typewriter"></span><span class="type-caret">▌</span>
+      </h2>
+      <p class="hero-tagline reveal" id="heroTagline"></p>
+      <div class="hero-actions reveal">
+        <a href="#experience" class="btn btn-primary">See my work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="hero-links reveal" id="heroLinks"></div>
     </div>
+    <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+  </header>
 
+  <main>
+    <!-- ======= ABOUT ======= -->
+    <section class="section" id="about">
+      <h2 class="section-title reveal"><span class="mono section-num">01.</span> About Me</h2>
+      <div class="about-grid">
+        <div class="about-text reveal" id="aboutText"></div>
+        <div class="about-photo reveal">
+          <div class="photo-frame">
+            <img id="aboutPhoto" src="SwagatPic.JPG" alt="Portrait of Swagat Adhikary">
+          </div>
+        </div>
+      </div>
+      <div class="stats reveal" id="stats"></div>
+    </section>
+
+    <!-- ======= EXPERIENCE ======= -->
+    <section class="section" id="experience">
+      <h2 class="section-title reveal"><span class="mono section-num">02.</span> Experience</h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <!-- ======= PROJECTS ======= -->
+    <section class="section" id="projects">
+      <h2 class="section-title reveal"><span class="mono section-num">03.</span> Projects</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <!-- ======= SKILLS ======= -->
+    <section class="section" id="skills">
+      <h2 class="section-title reveal"><span class="mono section-num">04.</span> Skills</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <!-- ======= EDUCATION ======= -->
+    <section class="section" id="education">
+      <h2 class="section-title reveal"><span class="mono section-num">05.</span> Education</h2>
+      <div class="education-grid" id="educationGrid"></div>
+    </section>
+
+    <!-- ======= CONTACT ======= -->
+    <section class="section section-contact" id="contact">
+      <p class="mono contact-kicker reveal">06. What's next?</p>
+      <h2 class="contact-title reveal">Let's build something.</h2>
+      <p class="contact-blurb reveal">My inbox is always open — whether it's a role, a project, or just a good idea worth talking about.</p>
+      <a class="btn btn-primary btn-lg reveal" id="contactBtn" href="#">Say hello</a>
+    </section>
+  </main>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="mono footer-note">Designed &amp; built by <span id="footerName">Swagat Adhikary</span></p>
+      <p class="mono footer-status">
+        <button class="status-dot" id="statusDot" aria-label="System status"></button>
+        all systems nominal
+      </p>
+    </div>
+  </footer>
+
+  <!-- ======= VAULT (hidden auth gate) ======= -->
+  <div class="vault-overlay" id="vaultOverlay" hidden>
+    <div class="vault-modal" role="dialog" aria-modal="true" aria-labelledby="vaultTitle">
+      <button class="vault-close" id="vaultClose" aria-label="Close">✕</button>
+      <div class="vault-icon">🔐</div>
+      <h3 class="vault-title mono" id="vaultTitle">Swagat's Vault</h3>
+      <p class="vault-subtitle mono" id="vaultSubtitle">Restricted area. Authorized personnel only.</p>
+      <form id="vaultForm" autocomplete="off">
+        <label class="vault-label mono" for="vaultUser">username</label>
+        <input class="vault-input mono" id="vaultUser" type="text" required>
+        <label class="vault-label mono" for="vaultPass">password</label>
+        <input class="vault-input mono" id="vaultPass" type="password" required>
+        <p class="vault-error mono" id="vaultError" hidden>⛔ access denied</p>
+        <button class="btn btn-primary vault-submit" type="submit">Authenticate</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="content.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
