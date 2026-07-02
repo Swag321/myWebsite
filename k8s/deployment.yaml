@@ -1,0 +1,48 @@
+# Runs 2 copies (replicas) of the site container.
+# Kubernetes spreads them across nodes and restarts them if they crash.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio
+  labels:
+    app: portfolio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: portfolio
+  strategy:
+    type: RollingUpdate        # deploy new versions with zero downtime
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: portfolio
+    spec:
+      containers:
+        - name: web
+          # 👇 replace with your image, e.g. <account>.dkr.ecr.us-east-1.amazonaws.com/portfolio:v1
+          image: YOUR_REGISTRY/portfolio:v1
+          ports:
+            - containerPort: 80
+          resources:
+            requests:          # guaranteed minimum — helps the scheduler place pods
+              cpu: 25m
+              memory: 32Mi
+            limits:            # hard ceiling
+              cpu: 200m
+              memory: 128Mi
+          livenessProbe:       # "is it alive?" — restart the pod if this fails
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          readinessProbe:      # "is it ready for traffic?" — remove from LB if this fails
+            httpGet:
+              path: /healthz
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 5

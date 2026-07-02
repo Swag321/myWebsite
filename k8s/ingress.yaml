@@ -1,0 +1,26 @@
+# OPTIONAL — a step beyond service.yaml's LoadBalancer.
+# An Ingress lets ONE load balancer route to MANY services by hostname/path
+# (cheaper + more flexible than one LB per service). Requires an ingress
+# controller in the cluster (e.g. AWS Load Balancer Controller or
+# ingress-nginx). If you use this, change service.yaml's type to ClusterIP.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: portfolio
+  annotations:
+    # for AWS Load Balancer Controller:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+    - host: swagatadhikary.com   # 👈 your domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: portfolio
+                port:
+                  number: 80

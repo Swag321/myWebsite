@@ -1,0 +1,15 @@
+# A Service gives the pods one stable address and load-balances across them.
+# type: LoadBalancer asks the cloud (AWS) to create a real load balancer
+# (an ELB/NLB) pointing at your pods — this is the piece you said you
+# wanted to learn about.
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio
+spec:
+  type: LoadBalancer
+  selector:
+    app: portfolio          # matches the pods from deployment.yaml
+  ports:
+    - port: 80              # the load balancer's port
+      targetPort: 80        # the container's port
