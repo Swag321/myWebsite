@@ -611,6 +611,27 @@ body::before {
 }
 .vault-error { color: #f87171; font-size: 0.78rem; margin-top: 14px; }
 .vault-submit { width: 100%; margin-top: 22px; }
+
+.vault-links { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.vault-link {
+  display: block; text-align: left;
+  padding: 12px 16px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.vault-link:hover {
+  border-color: var(--accent);
+  background: rgba(34, 211, 238, 0.08);
+  transform: translateX(4px);
+}
+.vault-link-label { display: block; font-weight: 600; color: var(--text); }
+.vault-link-desc {
+  display: block;
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--text-dim); margin-top: 2px;
+}
 .vault-modal.shake { animation: shake 0.4s; }
 @keyframes shake {
   0%, 100% { transform: translateX(0); }

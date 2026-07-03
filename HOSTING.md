@@ -27,6 +27,30 @@ python3 -m http.server 8000
 
 ---
 
+## The custom domain saga — how `main.swagatadhikary.com` actually works
+
+This site went through a real debugging session to get its domain back. The lesson is worth keeping, because "CNAME" confusingly names **two different things**:
+
+1. **A DNS `CNAME` *record*** — lives at your DNS provider (Squarespace, for swagatadhikary.com). It says *"`main.swagatadhikary.com` is an alias for `swag321.github.io`"* and routes browsers to **GitHub's servers**. It does NOT say which repo.
+2. **A `CNAME` *file*** — lives in a repo's root. When Pages deploys, it registers a **claim**: *"requests arriving at GitHub for this hostname belong to THIS repo."* One repo per hostname, first claim wins.
+
+Traffic flow (a load-balancing idea in disguise — one fleet of servers hosting millions of sites, routed by the `Host` header):
+
+```
+browser → DNS lookup (CNAME record) → GitHub/Fastly edge servers
+        → "which repo claimed main.swagatadhikary.com?" (CNAME file) → serve that repo
+```
+
+**What broke here:** the old `swag321.github.io` user-site repo still held the claim from years ago, so the domain kept serving the old portfolio no matter what this repo deployed. Deleting the old repo's `CNAME` file released the claim; the next deploy from this repo picked it up. If a deploy fails with a vague *"Deployment failed, try again later"* right after domain changes, it's usually the claim mid-transfer — push any commit to retry.
+
+**Want the bare apex (`swagatadhikary.com`) instead of `main.`?** Two changes, in order:
+1. *DNS side (Squarespace → Domains → DNS):* the apex currently points at Squarespace's own servers (198.185.159.x). Remove those A records and add GitHub's four: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`. (Apexes can't use CNAME records — that's why it's A records here.) Keep or add `www` → CNAME → `swag321.github.io`.
+2. *Repo side:* change the one line in this repo's `CNAME` file to `swagatadhikary.com` and push. GitHub re-issues the TLS cert automatically (minutes to a few hours).
+
+Until step 1 happens, leave the `CNAME` file on `main.` — switching it early just breaks the working subdomain.
+
+---
+
 ## Level 2 — AWS S3 + CloudFront (the "real world" static stack)
 
 This is how a huge share of production static sites actually run.
@@ -136,12 +160,12 @@ kubectl rollout restart deployment portfolio   # zero-downtime redeploy
 
 ## Securing the Vault
 
-The hidden button's login gate runs in the browser, so treat it as a doorbell, not a lock. When you're ready to wire it to your local LLM / NAS:
+The hidden button's login gate runs in the browser, so treat it as a doorbell, not a lock. It's now wired to the **Jarvis3 homelab** (see the jarvis3 repo), and the security is layered exactly the way it should be:
 
-1. **Never expose your home services directly to the internet.** Instead use one of:
-   - **Tailscale** (easiest): your services stay private; only your devices on the tailnet can reach them. Set `vault.url` to the Tailscale address (e.g. `http://homelab:3000`) — it'll work on your devices and fail for everyone else.
-   - **Cloudflare Tunnel + Access**: exposes `llm.yourdomain.com` publicly but puts Cloudflare's own login (email/SSO) in front. No open ports on your router.
-2. **The service itself should require auth too** — e.g. Open WebUI has built-in logins; NAS UIs have their own users.
-3. The site's vault modal then becomes exactly what it should be: a cool front door for you, while real security lives on the services behind it.
+1. **Network layer — Tailscale.** The vault's links point at the desktop's tailnet IP (`100.106.68.111`). Those `100.x.y.z` addresses are only reachable from devices signed into the tailnet — they aren't routable from the public internet, so publishing them leaks nothing useful. Anyone else clicking a vault link gets a connection error.
+2. **App layer — each service's own login.** Open WebUI (`:3000`) has per-user accounts (which Jarvis3 maps to personas), Immich (`:2283`) and Vaultwarden (`:11001`) have their own auth. Vaultwarden is additionally behind Caddy with HTTPS.
+3. **Cosmetic layer — the vault modal itself.** Keeps casual visitors out of even seeing the links.
+
+If you later want the parents (non-Tailscale users) to reach Jarvis, the jarvis3 OPERATIONS notes already sketch it: put Open WebUI + gateway behind Caddy on a real domain with HTTPS — that swaps layer 1 from "tailnet membership" to "TLS + strong app passwords".
 
 This layered setup (edge auth → network auth → app auth) is itself a classic infrastructure pattern: *defense in depth*.

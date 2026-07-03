@@ -7,7 +7,7 @@ FROM nginx:1.27-alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # copy only what the site needs
-COPY index.html content.js SwagatPic.JPG /usr/share/nginx/html/
+COPY index.html 404.html content.js SwagatPic.JPG robots.txt sitemap.xml /usr/share/nginx/html/
 COPY css/ /usr/share/nginx/html/css/
 COPY js/ /usr/share/nginx/html/js/
 

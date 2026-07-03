@@ -19,14 +19,14 @@ To swap your photo: drop a new image file in the repo and change the `photo:` li
 
 ## 🔐 The Vault (hidden button)
 
-There's a hidden login gate for linking to private stuff (local LLM, NAS, etc.):
+There's a hidden login gate that opens a launchpad to the homelab (Jarvis3 stack):
 
 - **Open it:** click the green status dot in the footer **3 times**, or press **Ctrl + Shift + L**.
 - **Default login:** `swagat` / `changeme123` — **change this!**
 - **To change credentials:** open the site, press F12 → Console, run `vaultHash("your-new-password")`, and paste the printed hash into the `vault` section of `content.js`. Do the same for the username.
-- **To change where it goes:** edit `vault.url` in `content.js`.
+- **After login** you get links to Jarvis (Open WebUI, `:3000`), Immich (`:2283`), and Vaultwarden (`:11001`) at the desktop's Tailscale IP. Edit `vault.links` in `content.js` to add/remove destinations. These URLs only resolve on devices in the tailnet — on anyone else's machine they go nowhere, by design.
 
-> ⚠️ This gate is a front door, not a lock. The credential hashes are visible in the page source, so anything genuinely private (your LLM, your NAS) must **also** require its own login — see [HOSTING.md → Securing the Vault](HOSTING.md#securing-the-vault).
+> ⚠️ This gate is a front door, not a lock. The credential hashes are visible in the page source, so the real security is layered behind it: Tailscale (network access) + each app's own login — see [HOSTING.md → Securing the Vault](HOSTING.md#securing-the-vault).
 
 ## 📁 What's what
 

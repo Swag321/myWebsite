@@ -249,19 +249,28 @@ window.SITE = {
         vaultHash("your-new-password")
      then paste the result below.
 
-     "url" is where a successful login takes you — point it at your
-     local LLM, NAS dashboard, etc. later.
+     After login you get a launchpad of your homelab links ("links"
+     below). The URLs are Tailscale addresses from the Jarvis3 stack —
+     they only work on devices connected to your tailnet, which is
+     exactly the point. Add/remove links freely.
+     (If you'd rather have a single redirect instead of a launchpad,
+     delete the whole "links" list and set "url" instead.)
 
-     NOTE: this is a lightweight front-door, not real security —
-     anything truly private must ALSO be protected on the server
-     it lives on (see HOSTING.md → "Securing the Vault").
+     NOTE: this gate is a lightweight front-door, not real security —
+     the real protection is Tailscale (network) + each app's own login
+     (see HOSTING.md → "Securing the Vault").
   ------------------------------------------------- */
   vault: {
     title: "Swagat's Vault",
     subtitle: "Restricted area. Authorized personnel only.",
     usernameHash: "c6d4452c88676602c4b57e6efbc130b6fd74e808391bad06a10b42ca580d66c6",
     passwordHash: "494a715f7e9b4071aca61bac42ca858a309524e5864f0920030862a4ae7589be",
-    url: "http://localhost:8080",   // 👈 change this to your local LLM / NAS URL later
+    links: [
+      { label: "🤖 Jarvis", desc: "Open WebUI · local LLM + RAG", url: "http://100.106.68.111:3000" },
+      { label: "📸 Immich", desc: "photo library", url: "http://100.106.68.111:2283" },
+      { label: "🔑 Vaultwarden", desc: "passwords (HTTPS via Caddy)", url: "https://100.106.68.111:11001" },
+    ],
+    url: "",   // legacy single-redirect mode — used only if "links" above is empty
   },
 
 };

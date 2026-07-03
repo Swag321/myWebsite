@@ -315,6 +315,12 @@
   function openVault() {
     overlay.hidden = false;
     vaultError.hidden = true;
+    const oldLinks = vaultModal.querySelector(".vault-links");
+    if (oldLinks) oldLinks.remove();
+    vaultModal.querySelector(".vault-icon").textContent = "🔐";
+    $("vaultTitle").textContent = V.title || "Swagat's Vault";
+    $("vaultSubtitle").textContent = V.subtitle || "Restricted area.";
+    $("vaultForm").hidden = false;
     $("vaultUser").value = "";
     $("vaultPass").value = "";
     $("vaultUser").focus();
@@ -354,7 +360,26 @@
       vaultError.hidden = true;
       vaultModal.querySelector(".vault-icon").textContent = "🔓";
       $("vaultTitle").textContent = "access granted";
-      setTimeout(() => { window.location.href = V.url || "/"; }, 600);
+      const links = V.links || [];
+      if (links.length) {
+        // launchpad mode: show the homelab links
+        $("vaultSubtitle").textContent = "welcome back.";
+        $("vaultForm").hidden = true;
+        const wrap = el("div", "vault-links");
+        links.forEach((l) => {
+          const a = el("a", "vault-link");
+          a.href = l.url;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.appendChild(el("span", "vault-link-label", l.label));
+          if (l.desc) a.appendChild(el("span", "vault-link-desc", l.desc));
+          wrap.appendChild(a);
+        });
+        vaultModal.appendChild(wrap);
+      } else {
+        // single-redirect mode
+        setTimeout(() => { window.location.href = V.url || "/"; }, 600);
+      }
     } else {
       vaultError.textContent = "⛔ access denied";
       vaultError.hidden = false;
